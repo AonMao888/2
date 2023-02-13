@@ -3,9 +3,8 @@ var fs = require("fs");
 var app = express();
 var pass = "memo19";
 app.use(express.json());
-var db = [
-    
-];
+app.use(express.static('p'))
+var db = [];
 
 app.get("/",(req,res)=>{
     res.send("This is home page")
