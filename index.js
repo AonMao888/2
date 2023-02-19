@@ -3,6 +3,7 @@ var ejs = require("ejs");
 var app = express();
 var pass = "memo19";
 app.use(express.json());
+app.set('views',__dirname+'/views')
 app.set('view engine','ejs');
 var db = [];
 
