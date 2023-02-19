@@ -1,5 +1,7 @@
 var express = require("express");
 var ejs = require("ejs");
+const e = require("express");
+const ytdl = require("ytdl-core");
 var app = express();
 var pass = "memo19";
 app.use(express.json());
@@ -10,8 +12,10 @@ var db = [];
 app.get("/",(req,res)=>{
     res.render('index',{text:"Hello you're"})
 })
-app.get('/p/:t',(req,res)=>{
-    res.render('index',{text:req.params.t});
+app.get('/d',(req,res)=>{
+    var id = req.query.link.split("v=")[1];
+    res.setHeader('Content-Disposition',`attachment; filename="${id}.mp4"`)
+    ytdl(req.query.link,{quality: 'highest'}).pipe(res)
 })
 
 app.get("/posts",(req,res)=>{
