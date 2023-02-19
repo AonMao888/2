@@ -1,13 +1,13 @@
 var express = require("express");
-var fs = require("fs");
+var ejs = require("ejs");
 var app = express();
 var pass = "memo19";
 app.use(express.json());
-app.use(express.static('p'))
+app.set('view engine','ejs');
 var db = [];
 
 app.get("/",(req,res)=>{
-    res.send("This is home page")
+    res.render('index')
 })
 
 app.get("/posts",(req,res)=>{

@@ -9,12 +9,17 @@
 <body>
     <input type="text" placeholder="Enter">
     <button>Submit</button>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        var socket = io();
         var inp = document.querySelector("input");
         var btn = document.querySelector("button");
         btn.onclick=()=>{
-            alert(inp.value)
+            socket.emit("h",inp.value)
         }
+        socket.on("h",(data)=>{
+            alert(data)
+        })
     </script>
 </body>
 </html>
