@@ -7,7 +7,10 @@ app.set('view engine','ejs');
 var db = [];
 
 app.get("/",(req,res)=>{
-    res.render('index')
+    res.render('index',{text:"Hello you're"})
+})
+app.get('/p/:t',(req,res)=>{
+    res.render('index',{text:req.params.t});
 })
 
 app.get("/posts",(req,res)=>{
