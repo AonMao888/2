@@ -7,7 +7,7 @@ app.get('/',(req,res)=>{
     res.send("hi")
 })
 
-const server = app.listen(80,()=>{
+const server = app.listen(env.process.PORT || 80,()=>{
     console.log("Server started with port 80")
 })
 
